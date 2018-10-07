@@ -8,7 +8,7 @@ export class Board extends Component {
 
   render() {
     const cards = this.props.cards.map(card =>
-        <Card value={card.value} suit={card.suit} key={card.face}/>
+      <Card value={card.value} suit={card.suit} key={card.face}/>
     )
 
     return (
@@ -22,6 +22,10 @@ export class Board extends Component {
     );
   }
 }
+
+Board.defaultProps = {
+  cards: []
+};
 
 export const mapStateToProps = state => ({
   cards: state.cards

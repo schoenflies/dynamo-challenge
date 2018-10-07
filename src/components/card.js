@@ -1,7 +1,7 @@
 import React from 'react';
 import './card.css';
 
-const Card = ({ suit, value }) => {
+export const Card = ({ suit, value }) => {
   let path = `assets/cards/${value}${suit}.svg`;
   return (
     <div className="card">
@@ -9,6 +9,7 @@ const Card = ({ suit, value }) => {
     </div>
   )
 }
+
 
 export default Card;
 

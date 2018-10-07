@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import {Board} from './board';
+import {Card} from './card';
 
-describe('<Board />', () => {
+describe('<Card />', () => {
   it('Renders without crashing', () => {
-    shallow(<Board />);
+    shallow(<Card />);
   });
 
 });
