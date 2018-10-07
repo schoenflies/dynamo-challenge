@@ -1,13 +1,15 @@
 import { ADD_CARD} from '../actions';
+import {newShuffledDeck} from '../cards'
 
 const initialState = {
-  cards: [{ id: 1, content: 'item1' }, { id: 2, content: 'item2' }]
+  cards: [],
+  deck: newShuffledDeck()
 };
 
 export const appReducer = (state = initialState, action) => {
   // Add code which handles each action here
   if (action.type === ADD_CARD) {
-    return Object.assign({}, state, { cards: [...state.cards, action.card] })
+    return Object.assign({}, state, { cards: [...state.cards, state.deck.pop()] })
   } 
   return state;
 };

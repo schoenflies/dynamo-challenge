@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {addCard} from '../actions'
 
 export class Board extends Component {
-  onSubmit(event){
-    event.preventDefault();
-  }
 
   render() {
     //TODO: map cards to be displayed
-    const cards = this.props.cards.map(card => <li>{card.content}</li>)
+    const cards = this.props.cards.map(card => <li>{card.value}</li>)
 
     return (
       <div className="Board">
         <header className="Board-header">
-          {cards}
+        {cards}
+        <button onClick={() => this.props.dispatch(addCard())}>Add Card</button>
         </header>
       </div>
     );
