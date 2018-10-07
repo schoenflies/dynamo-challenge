@@ -1,9 +1,8 @@
 import React from 'react';
 
-const Card = (props) => {
-  const color = props.color;
+const Card = ({color, face}) => {
   return (
-    <div style={ { color } }>{ props.face } </div>
+    <div className="card" style={ { color } }>{ face } </div>
   )
 }
 
