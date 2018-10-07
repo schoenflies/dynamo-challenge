@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {addCard} from '../actions'
+import {addCard, shuffleDeck} from '../actions'
 
 export class Board extends Component {
 
@@ -13,6 +13,7 @@ export class Board extends Component {
         <header className="Board-header">
         {cards}
         <button onClick={() => this.props.dispatch(addCard())}>Add Card</button>
+        <button onClick={() => this.props.dispatch(shuffleDeck())}>Shuffle Deck</button>
         </header>
       </div>
     );
