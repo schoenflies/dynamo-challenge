@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cardsJS": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
     "prettier": "^1.14.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-materialize": "^2.4.6",
     "react-redux": "^5.0.7",
     "react-scripts": "2.0.4",
     "redux": "^4.0.0",
