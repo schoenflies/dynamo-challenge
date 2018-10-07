@@ -10,7 +10,6 @@ export const Card = ({ suit, value }) => {
   )
 }
 
-
 export default Card;
 
 //TODO:

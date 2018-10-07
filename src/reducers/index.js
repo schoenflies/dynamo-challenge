@@ -1,9 +1,9 @@
 import { ADD_CARD, SHUFFLE_DECK } from '../actions';
-import { newShuffledDeck } from '../cards'
+import { generateDeck } from '../cards'
 
 const initialState = {
   cards: [],
-  deck: newShuffledDeck()
+  deck: generateDeck()
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -14,7 +14,7 @@ export const appReducer = (state = initialState, action) => {
   		window.Materialize.toast('Deck is empty.  Please reshuffle', 2000)
   	}
   } else if (action.type === SHUFFLE_DECK) {
-  	return Object.assign({}, state, { cards: [], deck: newShuffledDeck()})
+  	return Object.assign({}, state, { cards: [], deck: generateDeck()})
   } else {
     return state;
   }

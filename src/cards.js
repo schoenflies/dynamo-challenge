@@ -9,7 +9,7 @@ export const card = (value, suit) => ({
   suit
 });
 
-export const newShuffledDeck = () =>
+export const generateDeck = () =>
     shuffle(suits.reduce((cards, suit) =>
         [...cards, ...values.map(value => card(value, suit))]
     , []));
