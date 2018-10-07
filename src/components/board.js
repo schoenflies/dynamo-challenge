@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {addCard, shuffleDeck} from '../actions'
+import Card from './card'
 
 export class Board extends Component {
 
   render() {
-    //TODO: map cards to be displayed
-    const cards = this.props.cards.map(card => <li>{card.value}</li>)
+    const cards = this.props.cards.map(card => <Card face={card.face} color={card.color}/>)
 
     return (
       <div className="Board">
@@ -22,7 +22,6 @@ export class Board extends Component {
 
 export const mapStateToProps = state => ({
   cards: state.cards
-  
 });
 
 export default connect(mapStateToProps)(Board);
