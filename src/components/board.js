@@ -4,6 +4,10 @@ import { addCard, shuffleDeck } from '../actions';
 import Card from './card';
 import './board.css';
 
+/**
+ * Board that displays the cards that are added from the deck
+ */
+
 export class Board extends Component {
 
   render() {

@@ -1,6 +1,6 @@
 import { appReducer } from './index';
 import { shuffleDeck, addCard } from '../actions';
-import { generateDeck } from '../cards'
+import { generateDeck } from '../cards';
 
 describe('appReducer', () => {
   // Set up mock data
@@ -14,18 +14,13 @@ describe('appReducer', () => {
     ]
   };
 
-  // it('Should set the initial state when nothing is passed in', () => {
-  //   const state = appReducer(undefined, { type: '__UNKNOWN' });
-  //   expect(state).toEqual(initialState);
-  // });
-
   it('Should return the current state on an unknown action', () => {
     let currentState = initialState;
     const state = appReducer(currentState, { type: '__UNKNOWN' });
     expect(state).toBe(currentState);
   });
 
-  it('Should add new cards', () => {
+  it('Should add new cards from the current deck', () => {
     let state = Object.assign(initialState);
     let finalState = {
       cards: [{ "face": "9H", "suit": "H", "value": 9 },
@@ -37,10 +32,15 @@ describe('appReducer', () => {
 
       ]
     };
-
     state = appReducer(state, addCard());
     state = appReducer(state, addCard());
-
     expect(state).toEqual(finalState);
+  });
+
+    it('Should shuffle the deck and reset cards shown', () => {
+    let state = Object.assign(initialState);
+    state = appReducer(state, shuffleDeck());
+    expect(state.cards).toEqual([]);
+    expect(state.deck.length).toBe(52);
   });
 });

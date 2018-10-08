@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "cardsJS": "^1.1.1",
-    "enzyme-to-json": "^3.3.4",
-    "prettier": "^1.14.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-materialize": "^2.4.6",
@@ -33,7 +30,6 @@
   "devDependencies": {
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
-    "react-test-renderer": "^16.5.2",
-    "redux-mock-store": "^1.5.3"
+    "react-test-renderer": "^16.5.2"
   }
 }

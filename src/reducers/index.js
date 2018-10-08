@@ -11,7 +11,8 @@ export const appReducer = (state = initialState, action) => {
   	if(state.deck.length > 0){
       return Object.assign({}, state, { cards: [...state.cards, state.deck.pop()] })
   	}else{
-  		window.Materialize.toast('Deck is empty.  Please reshuffle', 2000)
+  		window.Materialize.toast('Deck is empty.  Please reshuffle', 2000);
+      return state;
   	}
   } else if (action.type === SHUFFLE_DECK) {
   	return Object.assign({}, state, { cards: [], deck: generateDeck()})
