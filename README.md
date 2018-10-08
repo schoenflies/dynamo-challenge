@@ -15,9 +15,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 
-### `npm test`
+### `npm test a`
 
-Launches the test runner in the interactive watch mode.<br>
+Launches the test runner in the interactive watch mode to run all tests.<br>
 
 ### `npm run build`
 
