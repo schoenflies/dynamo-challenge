@@ -5,10 +5,28 @@ import Card from './card';
 import './board.css';
 
 /**
- * Board that displays the cards that are added from the deck
+ * Board container that displays the cards that are added from the deck
  */
 
 export class Board extends Component {
+  constructor(props){
+    super(props);
+    this.state = {hideButton: false};
+  }
+
+  onAddCardClick = () => {
+    if(this.props.cards.length < 52) {
+      this.props.dispatch(addCard());
+    }else{
+      //disable Add Card button if deck is empty
+      this.setState({hideButton: true});
+    }
+  }
+
+  onShuffleDeckClick = () => {
+    this.props.dispatch(shuffleDeck());
+    this.setState({hideButton: false});
+  }
 
   render() {
     const cards = this.props.cards.map(card =>
@@ -18,8 +36,8 @@ export class Board extends Component {
     return (
       <div className="board">
         <header className="board-header">
-          <button class="waves-effect waves-light btn" onClick={() => this.props.dispatch(addCard())}>Add Card</button>
-          <button class="waves-effect waves-light btn" onClick={() => this.props.dispatch(shuffleDeck())}>Shuffle Deck</button>
+          <button className="waves-effect waves-light btn" onClick={this.onAddCardClick} disabled={this.state.hideButton}>Add Card</button>
+          <button className="waves-effect waves-light btn" onClick={this.onShuffleDeckClick}>Shuffle Deck</button>
         </header>
           <div className="card-container">{cards}</div>
       </div>
@@ -27,11 +45,12 @@ export class Board extends Component {
   }
 }
 
+//Set default props to make testing unconnected components easier 
 Board.defaultProps = {
   cards: []
 };
 
-export const mapStateToProps = state => ({
+const mapStateToProps = state => ({
   cards: state.cards
 });
 

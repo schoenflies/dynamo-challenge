@@ -1,6 +1,5 @@
 import { appReducer } from './index';
 import { shuffleDeck, addCard } from '../actions';
-import { generateDeck } from '../cards';
 
 describe('appReducer', () => {
   // Set up mock data

@@ -7,7 +7,7 @@ const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
  * Generator function for a single card
  *
  * @param {string} value - The value of the card
- * @param {string}, {number} suit - The suite of the card
+ * @param {string,number} suit - The suite of the card
  */
 export const card = (value, suit) => ({
   face: value + suit,

@@ -10,7 +10,7 @@ export const Card = ({ suit, value }) => {
   let path = `assets/cards/${value}${suit}.svg`;
   return (
     <div className="card">
-      <img class='card' src={path}/>
+      <img className='card' src={path}/>
     </div>
   )
 }
@@ -24,12 +24,3 @@ Card.propTypes = {
 };
 
 export default Card;
-
-//TODO:
-
-//1. display correct card - DONE
-//2. add proptypes - DONE
-//3. make tests pass 
-//4. style with flexbox to make UI not shitty - DONE
-//5. fix empty deck error - DONE
-//6. comment code

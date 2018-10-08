@@ -3,45 +3,43 @@ import { shallow } from 'enzyme';
 import { Board } from './board';
 
 import Card from './card';
-import {addCard, shuffleDeck} from '../actions';
+import { addCard, shuffleDeck } from '../actions';
+
+import { generateDeck } from '../cards'
 
 describe('<Board />', () => {
+  const seedCards = generateDeck();
   it('Renders without crashing', () => {
     shallow(<Board />);
   });
 
-  //TODO: test it dispatches correctly
+  it('Dispatches addCard from onAddCardClick', () => {
+    const dispatch = jest.fn();
+    const wrapper = shallow(
+      <Board dispatch={dispatch} />
+    );
+    const instance = wrapper.instance();
+    instance.onAddCardClick();
+    expect(dispatch).toHaveBeenCalledWith(addCard());
+  });
 
-  // it('Dispatches addCard from addCard', () => {
-  //   const dispatch = jest.fn();
-  //   const wrapper = shallow(
-  //     <Board dispatch={dispatch}/>
-  //   );
-  //   const instance = wrapper.instance();
-  //   console.log(instance)
-  //   instance.addCard();
-  //   expect(dispatch).toHaveBeenCalledWith(addCard());
-  // });
+  it('Dispatches shuffleDeck from onShuffleDeckClick', () => {
+    const dispatch = jest.fn();
+    const wrapper = shallow(
+      <Board dispatch={dispatch}/>
+    );
+    const instance = wrapper.instance();
+    instance.onShuffleDeckClick();
+    expect(dispatch).toHaveBeenCalledWith(shuffleDeck());
+  });
 
-    // it('Dispatches shuffleDeck from shuffleDeck', () => {
-  //   const dispatch = jest.fn();
-  //   const wrapper = shallow(
-  //     <Board dispatch={dispatch}/>
-  //   );
-  //   const instance = wrapper.instance();
-  //   instance.shuffleDeck();
-  //   expect(dispatch).toHaveBeenCalledWith(shuffleDeck());
-  // });
-
-  // it('Renders the cards', () => {
-  //   const dispatch = jest.fn();
-  //   const wrapper = shallow(
-  //     <Board cards={seedCards} dispatch={dispatch} />
-  //   );
-  //   const lists = wrapper.find(Card);
-  //   expect(cards.length).toEqual(seedCards.length);
-  //   const firstCard = cards.first();
-  //   expect(firstCard.prop('face')).toEqual(seedLists[0].face);
-  // });
+  it('Renders the cards', () => {
+    const dispatch = jest.fn();
+    const wrapper = shallow(
+      <Board cards={seedCards} dispatch={dispatch} />
+    );
+    const cards = wrapper.find(Card);
+    expect(cards.length).toEqual(seedCards.length);
+  });
 
 });
