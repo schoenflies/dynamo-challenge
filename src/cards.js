@@ -16,7 +16,7 @@ export const card = (value, suit) => ({
 });
 
 /**
- * Function for shuffling a deck of cards using the Fisher-Yates algorithm
+ * Function for generating a shuffled deck of cards. The shuffle method uses Fisher-Yates algorithm
  *
  */
 export const generateDeck = () =>

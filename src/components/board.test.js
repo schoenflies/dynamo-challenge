@@ -1,14 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Board } from './board';
-
 import Card from './card';
 import { addCard, shuffleDeck } from '../actions';
-
 import { generateDeck } from '../cards'
 
 describe('<Board />', () => {
   const seedCards = generateDeck();
+  
   it('Renders without crashing', () => {
     shallow(<Board />);
   });
