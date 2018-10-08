@@ -15,7 +15,7 @@ export class Board extends Component {
   }
 
   onAddCardClick = () => {
-    if(this.props.cards.length < 52) {
+    if(this.props.deck.length > 0) {
       this.props.dispatch(addCard());
     }else{
       //disable Add Card button if deck is empty
@@ -36,7 +36,7 @@ export class Board extends Component {
     return (
       <div className="board">
         <header className="board-header">
-          <button className="waves-effect waves-light btn" onClick={this.onAddCardClick} disabled={this.state.hideButton}>Add Card</button>
+          <button className="waves-effect waves-light btn" onClick={this.onAddCardClick} disabled={this.state.hideButton}>Draw Card</button>
           <button className="waves-effect waves-light btn" onClick={this.onShuffleDeckClick}>Shuffle Deck</button>
         </header>
           <div className="card-container">{cards}</div>
@@ -51,7 +51,8 @@ Board.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  cards: state.cards
+  cards: state.cards,
+  deck: state.deck
 });
 
 export default connect(mapStateToProps)(Board);
